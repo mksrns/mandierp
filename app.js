@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 var path = require("path");
 const http = require('http');
 const orderRoutes = require('./api/routes/orders');
+const merchantRoutes = require('./api/routes/merchants');
 const customerRoutes = require('./api/routes/customers');
 const dayStaffRoutes = require('./api/routes/dayStaffs');
 const stateRoutes = require('./api/routes/states');
@@ -55,6 +56,7 @@ app.use('/customers', customerRoutes);
 app.use('/dayStaffs', dayStaffRoutes);
 app.use('/states', stateRoutes);
 app.use('/orders', orderRoutes);
+app.use('/merchants', merchantRoutes);
 app.use('/superAdmin', superAdminRoutes);
 
 app.get('*', (req, res) => {

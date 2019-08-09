@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     res.status(200).json(
-        [
+        [ 
             {id:1,state:"bihar", city:[
                 {id:1,state:"muzaffarpur"},
                 {id:2,state:"hajipur"},

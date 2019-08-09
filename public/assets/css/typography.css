@@ -6,7 +6,16 @@ p{
 .center{
     text-align: center;
 }
-
+.right{
+    text-align: right;
+}
+.left{
+    text-align: left;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
 .logo-text{
     font-size: 35px;
     font-weight: 700;
