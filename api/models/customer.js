@@ -15,7 +15,7 @@ var customerSchema = new Schema({
     contactInfo:{
         telephone: [String],
         email: {type: String},
-        address: {
+        address: { 
             street: {type: String},
             city: {type: String},
             state: {type: String},

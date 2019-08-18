@@ -11,6 +11,7 @@ const customerRoutes = require('./api/routes/customers');
 const dayStaffRoutes = require('./api/routes/dayStaffs');
 const stateRoutes = require('./api/routes/states');
 const superAdminRoutes = require('./api/routes/superAdmins');
+const bijakRoutes = require('./api/routes/bijaks');
 const config = require('./config/database');
 
 const port = process.env.PORT || 8080;
@@ -54,10 +55,13 @@ app.use((req, res, next) => {
 //Routes for handling requests
 app.use('/customers', customerRoutes);
 app.use('/dayStaffs', dayStaffRoutes);
-app.use('/states', stateRoutes);
 app.use('/orders', orderRoutes);
 app.use('/merchants', merchantRoutes);
 app.use('/superAdmin', superAdminRoutes);
+
+
+app.use('/states', stateRoutes);
+app.use('/bijaks', bijakRoutes);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
