@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var path = require("path");
 const http = require('http');
+const compression = require('compression');
 const orderRoutes = require('./api/routes/orders');
 const merchantRoutes = require('./api/routes/merchants');
 const customerRoutes = require('./api/routes/customers');
@@ -29,6 +30,7 @@ mongoose.connection.on('error', (err) => {
         console.log('Error is: ' +err);
     }
 });
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
