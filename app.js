@@ -16,7 +16,7 @@ const bijakRoutes = require('./api/routes/bijaks');
 const config = require('./config/database');
 
 const port = process.env.PORT || 8080;
-
+app.use(compression());
 //Database
 mongoose.connect(config.database);
 
@@ -30,13 +30,21 @@ mongoose.connection.on('error', (err) => {
         console.log('Error is: ' +err);
     }
 });
-app.use(compression());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {
+    maxAge: 86400000,
+        setHeaders: function(res, path) {
+            res.setHeader("Expires", new Date(Date.now() + 2592000000*30).toUTCString());
+      }
+}));
 
 //Morgan for testing status
 app.use(morgan('dev'));
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('uploads', {
+    maxAge: 86400000,
+    setHeaders: function(res, path) {
+        res.setHeader("Expires", new Date(Date.now() + 2592000000*30).toUTCString());
+}}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
