@@ -78,7 +78,7 @@ exports.customers_create_customer = (req, res, next) => {
             firstname: req.body.firstname,
             lastname: req.body.lastname
         },
-        //customerImage: req.file.path,
+        // customerImage: req.file.path,
         username: req.body.username,
         password: req.body.password,
         created_at: new Date(),
